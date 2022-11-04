@@ -7,4 +7,8 @@ export default class ProductService {
   async create(name: string, amount: string): Promise<IProduct> {
     return this.productModel.create(name, amount);
   }
+
+  async findAll(): Promise<IProduct[]> {
+    return this.productModel.findAll();
+  }
 }
