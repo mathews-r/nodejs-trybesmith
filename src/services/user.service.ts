@@ -16,4 +16,18 @@ export default class UserService {
       { algorithm: 'HS256', expiresIn: '1d' },
     );
   }
+
+  public async login(username: string, password: string) {
+    const result = await this.userModel.login(username, password);
+    
+    if (result !== undefined) {
+      const token = this.jwt.sign(
+        { id: result.id, username },
+        process.env.JWT_SECRET as string,
+        { algorithm: 'HS256', expiresIn: '1d' },
+      );
+      return { type: 200, message: token };
+    }
+    return { type: 401, message: 'Username or password invalid' };
+  }
 }
