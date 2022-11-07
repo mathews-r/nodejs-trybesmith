@@ -10,8 +10,8 @@ const orderRouter = express.Router();
 orderRouter.get('/', (req, res) => orderControler.findAll(req, res));
 orderRouter.post(
   '/', 
-  orderValidation, 
   authMiddleware,
+  orderValidation,
   (req, res) => orderControler.create(req, res),
 );
 

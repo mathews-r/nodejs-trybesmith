@@ -1,4 +1,4 @@
-import { ResultSetHeader, RowDataPacket } from 'mysql2';
+import { ResultSetHeader } from 'mysql2';
 import { IUser } from '../interfaces/Users';
 import mysql from './connection';
 
@@ -14,12 +14,12 @@ export default class UsersModel {
     return insertId;
   }
 
-  public async login(username: string, password: string): Promise<IUser | undefined> {
-    const [result] = await this.connection.execute<RowDataPacket[] & IUser>(
+  public async login(username: string, password: string): Promise<IUser[]> {
+    const [result] = await this.connection.execute(
       'SELECT * FROM Trybesmith.Users WHERE username = ? AND password = ?',
       [username, password],
     );
-    if (result.length === 0) return undefined;
-    return result;
+
+    return result as IUser[];
   }
 }

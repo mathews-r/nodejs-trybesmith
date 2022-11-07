@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+// import jwt from 'jsonwebtoken';
 import OrderService from '../services/order.service';
 
 export default class OrderController {
@@ -11,10 +12,10 @@ export default class OrderController {
 
   public async create(req: Request, res: Response): Promise<void> {
     const { productsIds } = req.body;
-    console.log(req.body.user.userId);
+    const { authorization: token } = req.headers;
     
-    await this.orderService.createOrder(req.body.user.userId, productsIds);
+    const { id } = await this.orderService.createOrder(productsIds, token as string);
 
-    res.status(201).json({ userId: req.body.user.userId, productsIds });
+    res.status(201).json({ userId: id, productsIds });
   }
 }

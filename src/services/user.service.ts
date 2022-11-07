@@ -8,7 +8,7 @@ export default class UserService {
 
   public async generateToken(username: string, classe: string, level: number, password: string) {
     const userId = await this.userModel.create(username, classe, level, password);
-
+    
     const payload = { userId, username, classe, level }; 
     return this.jwt.sign(
       payload, 
@@ -18,8 +18,8 @@ export default class UserService {
   }
 
   public async login(username: string, password: string) {
-    const result = await this.userModel.login(username, password);
-    
+    const [result] = await this.userModel.login(username, password);
+
     if (result !== undefined) {
       const token = this.jwt.sign(
         { id: result.id, username },
