@@ -6,7 +6,9 @@ export default function authMiddleware(req: Request, res: Response, next: NextFu
   const { authorization: token } = req.headers;
   
   if (!token) {
-    res.status(401).json({ message: 'Token not found' });
+    throw new HttpException(401, 'Token not found');
+    // ou
+    // res.status(401).json({ message: 'Token not found' });
   }
 
   try {
@@ -16,6 +18,8 @@ export default function authMiddleware(req: Request, res: Response, next: NextFu
     next();
   } catch (err) {
     throw new HttpException(401, 'Invalid token');
+
+    // ou
     // const e = res.status(401).json({ message: 'Invalid token' });
     // next(e);
   }

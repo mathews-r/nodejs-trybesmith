@@ -8,11 +8,6 @@ const orderControler = new OrderController();
 const orderRouter = express.Router();
 
 orderRouter.get('/', (req, res) => orderControler.findAll(req, res));
-orderRouter.post(
-  '/', 
-  authMiddleware,
-  orderValidation,
-  (req, res) => orderControler.create(req, res),
-);
+orderRouter.post('/', authMiddleware, orderValidation, orderControler.create.bind(orderControler));
 
 export default orderRouter;
