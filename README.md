@@ -1,10 +1,55 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# :scroll: Trybesmith
+
+Neste projeto, criei uma loja de itens medievais, no formato de uma API, utilizando Typescript.
+
+Desenvolvi todas as camadas da aplicação (Models, Service e Controllers) e, por meio dessa aplicação, é possível realizar as operações básicas que se pode fazer em um determinado banco de dados: Criação, Leitura, Atualização e Exclusão (ou CRUD, para as pessoas mais íntimas - Create, Read, Update e Delete).
+
+## ⚙️ Funcionalidades
+
+✅ TypeScript;
+
+✅ Validação com JWT;
+
+✅ Arquiterura MSC - Model, Service e Controller;
+
+✅ MySQL e Docker;
+
+## :hammer_and_wrench: Ferramentas 
+### 🍮 BackEnd
+- TypeScript;
+- Express;
+- JWT;
+- CRUD;
+
+## 📁 Acessar Projeto Localmente
+
+- *Clonar o repositório:*
+
+```
+$ git clone git@github.com:mathews-r/trybesmith.git
+```
+
+- *Acessar o projeto blogsapi:*
+
+```
+$ cd trybesmith
+```
+
+- *Instalar dependências:*
+
+```
+$ npm install
+```
+
+- *Executar projeto:*
+
+```
+$ docker-compose up -d - Iniciar os containers
+$ npm run dev - Iniciar a aplicação (nodemon)
+$ npm run restore - Para restaurar o DB se precisar
+
+```
+
+## 👨‍💻 Desenvolvedor
+
+- [Mathews Rodrigues](https://www.linkedin.com/in/mathewsrodrigues/)
